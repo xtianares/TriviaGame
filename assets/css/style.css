@@ -1,0 +1,23 @@
+/* ----------------------------------------------------------------------------
+    Project Styles
+----------------------------------------------------------------------------- */
+html {
+    min-height: 100%;
+    position: relative;
+}
+body {
+    font-family: 'Roboto Slab', 'Open Sans', 'Trebuchet MS', Verdana, Arial, Helvetica, sans-serif;
+    text-rendering: optimizeLegibility;
+    color: #fff;
+    background: #2A2054;
+    background-size: cover;
+    background-position: 50% 50%;
+    background-attachment: fixed;
+    overflow-y: scroll;
+}
+.container {
+    max-width: 1200px;
+}
+.container-fluid.but-fixed {
+    max-width: 1230px;
+}
