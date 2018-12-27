@@ -21,3 +21,22 @@ body {
 .container-fluid.but-fixed {
     max-width: 1230px;
 }
+.status-area {
+    margin: 20px auto;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+.question {
+    margin-top: 10px;
+    margin-bottom: 30px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+.choices {
+    flex-wrap: wrap;
+}
+.choices button {
+    margin: 15px;
+    width: calc(50% - 30px);
+    white-space: wrap !important;
+}

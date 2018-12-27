@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>RPG Game</title>
+    <title>Random Trivia Game</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" type="image/x-icon" href="assets/images/rockman.png">
     <!-- Bootstrap CSS -->
@@ -17,7 +17,7 @@
 <header id="header-wrapper" class="clearfix">
     <div class="container-fluid but-fixed">
         <div class="row justify-content-center">
-            <div class="col-lg-10 text-center mt-5">
+            <div class="col-lg-10 text-center mt-4">
                 <h1 class="main-title">Random Trivia Game</h1>
             </div>
         </div>
@@ -26,16 +26,23 @@
 <main>
     <div class="container-fluid but-fixed">
         <div class="row justify-content-center">
-            <div class="game-area col-lg-10 text-center mt-2 d-flex justify-content-center">
-                <div class="question">
-                    <h3 class="question">What is this game?</h3>
+            <div class="status-area col-lg-8 text-center mt-3">
+                <div class="question-number float-left">
+                    Question: <span class="number">1</span>/<span class="total-questions">10</span>
                 </div>
-                <div class="timer">Remaining Time: <span class="time">10</span></div>
-                <div class="choices">
-                    <button>Answer 1</button>
-                    <button>Answer 2</button>
-                    <button>Answer 3</button>
-                    <button>Answer 4</button>
+                <div class="timer float-right">
+                    Remaining Time: <span class="time">15</span>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="game-area col-lg-8 text-center mt-2">
+                <h4 class="question">What ingredient in fresh milk is eventually devoured by bacteria, causing the sour taste?</h4>
+                <div class="choices d-flex">
+                    <button class="btn btn-outline-success">Answer 1</button>
+                    <button class="btn btn-outline-success">Answer 2</button>
+                    <button class="btn btn-outline-success">Answer 3</button>
+                    <button class="btn btn-outline-success">Answer 4</button>
                 </div>
             </div>
         </div>
