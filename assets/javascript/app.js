@@ -13,29 +13,36 @@ const questions = [
 ];
 
 let currentQuestionIndex = getRandomNumber(0, questions.length),
-    currentQuston = questions[currentQuestionIndex],
-    timer = 15,
+    currentQuestion = questions[currentQuestionIndex],
+    timer = 5,
     timerId;
 
 function getRandomNumber(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
+function init() {
+    timerInit();
+    $('.game-row').css('display', 'flex');
+    $('.start-area').hide();
+}
 function timerInit() {
-    $(".timer").html(timer);
+    $(".timer").text(timer);
     clearInterval(timerId);
     timerId = setInterval(decrement, 1000);
 }
 function decrement() {
     timer--;
-    //  Show the number in the #show-number tag.
-    $(".timer").html(timer);
-    //  Once number hits zero...
+    $(".timer").text(timer);
     if (timer === 0) {
         timerStop();
+        $(".choices").replaceWith('<div class="times-up"><h3>Times Up!</h3><p>Correct answer is: <p></div>');
     }
 }
 function timerStop() {
     clearInterval(timerId);
 }
-timerInit();
+
+$('.start-area').click(function() {
+    init();
+});
