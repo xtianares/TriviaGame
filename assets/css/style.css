@@ -25,22 +25,41 @@ body {
     display: none;
 }
 .status-area {
-    margin: 20px auto;
+    margin: 20px auto 10px auto;
     padding-left: 30px;
     padding-right: 30px;
+    padding-top: 20px;
+    border-top: 1px dotted #ccc;
+}
+.timer {
+    display: inline-block;
+    width: 20px;
+    text-align: left;
+}
+.game-area {
+    margin-left: 15px;
+    margin-right: 15px;
+    background-color: rgba(255, 255, 255, 1);
+    border-radius: 5px;
+    color: #555;
 }
 .question {
     margin-top: 10px;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
+    padding-top: 20px;
     padding-left: 15px;
     padding-right: 15px;
 }
 .choices {
     flex-wrap: wrap;
     text-align: center;
+    margin-bottom: 15px;
 }
 .choices button {
     margin: 15px;
     width: calc(50% - 30px);
     white-space: wrap !important;
+}
+.restart-btn {
+    margin-bottom: 30px;
 }

@@ -47,7 +47,7 @@ function init() {
         let choices = '';
         questionChoices.sort(function() { return 0.5 - Math.random() }); // randomizing the answers from https://css-tricks.com/snippets/javascript/shuffle-array/
         for (var i = 0; i < questionChoices.length; i++) {
-            choices += `<button class="btn btn-outline-success answer">${questionChoices[i]}</button>`;
+            choices += '<button class="btn btn-outline-success answer">' + questionChoices[i] + '</button>';
         }
         $('.choices').html(choices); // display current question's choices
     }
@@ -63,6 +63,7 @@ function decrement() {
     $(".timer").text(runningTimer);
     if (runningTimer === 0) {
         timerStop();
+        wrongAnswers++;
         $(".choices").html('<div class="times-up"><h3>Times Up!</h3><p>Correct answer is: ' + questions[questionIndex].a + '<p></div>');
         nextQuestion();
     }
