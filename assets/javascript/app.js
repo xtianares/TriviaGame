@@ -29,7 +29,7 @@ let questionIndex = 0,
 
 function init() {
     timerInit();
-    questionIndex = Math.floor(Math.random() * (questions.length));
+    questionIndex = Math.floor(Math.random() * (questions.length)); // randomization of questions
     currentQuestion = questions[questionIndex].q;
     questionChoices = questions[questionIndex].c;
     console.log(questionIndex, shownQuestionIndex.length, questions.length)
@@ -45,10 +45,11 @@ function init() {
         $('.total-questions').text(questions.length); // show total number of questions
         $('.question').text(currentQuestion); // display current question
         let choices = '';
+        questionChoices.sort(function() { return 0.5 - Math.random() }); // randomizing the answers from https://css-tricks.com/snippets/javascript/shuffle-array/
         for (var i = 0; i < questionChoices.length; i++) {
             choices += `<button class="btn btn-outline-success answer">${questionChoices[i]}</button>`;
         }
-        $('.choices').html(choices); // display current question choices
+        $('.choices').html(choices); // display current question's choices
     }
 }
 function timerInit() {
@@ -86,7 +87,7 @@ function checkAnswer(answer) {
 }
 function nextQuestion() {
     if (shownQuestionIndex.length < questions.length) {
-        setTimeout(init, 3000);
+        setTimeout(init, 2000);
     }
     else {
         // show game summary function and restart option
@@ -96,7 +97,7 @@ function nextQuestion() {
             $(".question").replaceWith('<h3 class="question">Game Summary</h3>');
             $(".choices").html('<div class="result"><h4>Correct Answers: ' + correctAnswers + '</h4><h4>Wrong Answers: ' + wrongAnswers + '</h4></div>');
             $(".choices").after('<button class="restart-btn btn btn-success">Restart the game!</button>');
-        }, 3000);
+        }, 2000);
     }
 }
 function restart() {
