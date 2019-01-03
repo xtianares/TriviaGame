@@ -1,22 +1,3 @@
-// trivia questions, q = questions, c = choices and a = index of correct choice
-const questions = [
-    {
-        q: "What ingredient in fresh milk is eventually devoured by bacteria, causing the sour taste?",
-        c: ["Lactose", "Conola Oil", "Cocoa Powder", "Calcium"],
-        a: "Lactose"
-    },
-    {
-        q: "What type of animal is a skink?",
-        c: [ "Dog", "Cat", "Dragon", "Lizard"],
-        a: "Lizard"
-    },
-    {
-        q: "What color are aircraft black boxes?",
-        c: ["Dark Black", "Bright Orange", "Bright Red", "Bright Yellow"],
-        a: "Bright Orange"
-    }
-];
-
 let questionIndex = 0,
     currentQuestion = '',
     questionChoices = '',
@@ -76,13 +57,13 @@ function checkAnswer(answer) {
     if (answer === questions[questionIndex].a) {
         correctAnswers++;
         // console.log('correctAnswers: ' + correctAnswers);
-        $(".choices").html('<div class="times-up"><h3>You got it!</h3><p>Correct answer is: ' + questions[questionIndex].a + '<p></div>');
+        $(".choices").html('<div class="times-up"><h3 class="h4">You got it!</h3><p>Correct answer is:<span class="correct-answer">' + questions[questionIndex].a + '</span><p></div>');
         nextQuestion();
     }
     else {
         wrongAnswers++;
         // console.log('wrongAnswers: ' + wrongAnswers);
-        $(".choices").html('<div class="result"><h3>Wrong!</h3><p>Correct answer is: ' + questions[questionIndex].a + '<p></div>');
+        $(".choices").html('<div class="result"><h3 class="h4">Wrong!</h3><p>Correct answer is:<span class="correct-answer">' + questions[questionIndex].a + '</span><p></div>');
         nextQuestion();
     }
 }
