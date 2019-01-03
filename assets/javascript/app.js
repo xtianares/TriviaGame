@@ -33,6 +33,8 @@ const trivia = {
             }
             $('.choices').html(choices); // display current question's choices
         }
+        let audio = new Audio('assets/sounds/rainforest-ambience.mp3');
+        audio.play();
     },
     timerInit: function() {
         runningTimer = setTimer,
@@ -93,11 +95,8 @@ const trivia = {
     }
 }
 
-
 $(document).on('click', '.start-btn', function() {
     trivia.init();
-    let audio = new Audio('assets/sounds/rainforest-ambience.mp3');
-    audio.play();
 });
 $(document).on('click', '.restart-btn', function() {
     trivia.restart();
