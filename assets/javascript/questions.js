@@ -1,5 +1,5 @@
 // trivia questions, q = questions, c = choices and a = index of correct choice
-const questions = [
+let questions = [
     {
         q: "What is the tallest type of horse?",
         c: ["Suffolk Punch", "Shire", "Thoroughbred", "Arabian"],

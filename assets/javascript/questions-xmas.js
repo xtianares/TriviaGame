@@ -1,5 +1,5 @@
 // trivia questions, q = questions, c = choices and a = index of correct choice
-const questions = [
+let questions = [
     {
         q: "Which of these is not one of Santa's reindeer?",
         c: ["Prancer", "Dancer", "Donner", "Balancer"],

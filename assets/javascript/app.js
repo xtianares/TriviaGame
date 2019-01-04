@@ -6,7 +6,40 @@ let questionIndex = 0,
     wrongAnswers = 0,
     setTimer = 15,
     runningTimer = 0,
-    timerId;
+    timerId,
+    theQuestions = [];
+
+// fetching questions from a trivia API
+function triviaApi(callback) {
+    let jsonUrl = "https://opentdb.com/api.php?amount=10&category=27&difficulty=medium";
+    $.getJSON(jsonUrl, function (data) {
+        callback(data);
+        // console.log(data);
+    })
+    .fail(function(){
+        questions = questions; // if API fails default back to the hardcoded trivia questions
+    });
+}
+triviaApi(function(data) {
+    if (data !== undefined) {
+        let results = data.results;
+        // console.log(results);
+        for (var i = 0; i < results.length; i++) {
+            // console.log(results[i].question);
+            let apiQuestions = {
+                q: results[i].question,
+                c: results[i].incorrect_answers,
+                a: results[i].correct_answer
+            }
+            apiQuestions.c.push(apiQuestions.a);
+            theQuestions.push(apiQuestions); //
+        }
+        questions = theQuestions;
+    } else {
+        console.log("API is down or something else is going on...");
+        questions = questions; // if API fails default back to the hardcoded trivia questions
+    }
+});
 
 const trivia = {
     init: function() {
@@ -25,7 +58,7 @@ const trivia = {
             $('.start-area').hide();
             $('.number').text(shownQuestionIndex.length); // show current number of question
             $('.total-questions').text(questions.length); // show total number of questions
-            $('.question').text(currentQuestion); // display current question
+            $('.question').html(currentQuestion); // display current question
             let choices = '';
             questionChoices.sort(function() { return 0.5 - Math.random() }); // randomizing the answers from https://css-tricks.com/snippets/javascript/shuffle-array/
             for (var i = 0; i < questionChoices.length; i++) {
@@ -48,7 +81,7 @@ const trivia = {
         if (runningTimer === 0) {
             trivia.timerStop();
             wrongAnswers++;
-            $(".choices").html('<div class="times-up"><h3>Times Up!</h3><p>Correct answer is: ' + questions[questionIndex].a + '<p></div>');
+            $(".choices").html('<div class="tresult"><h3 class="h4">Times Up!</h3><p>Correct answer is:<span class="correct-answer">' + questions[questionIndex].a + '</span><p></div>');
             trivia.nextQuestion();
         }
     },
@@ -60,7 +93,7 @@ const trivia = {
         if (answer === questions[questionIndex].a) {
             correctAnswers++;
             // console.log('correctAnswers: ' + correctAnswers);
-            $(".choices").html('<div class="times-up"><h3 class="h4">You got it!</h3><p>Correct answer is:<span class="correct-answer">' + questions[questionIndex].a + '</span><p></div>');
+            $(".choices").html('<div class="result"><h3 class="h4">You got it!</h3><p>Correct answer is:<span class="correct-answer">' + questions[questionIndex].a + '</span><p></div>');
             this.nextQuestion();
         }
         else {
