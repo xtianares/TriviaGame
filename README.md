@@ -8,3 +8,6 @@ Once all the questions have been answered or have been shown, a summary of the g
 
 ### Game Features
 The questions and answers are being randomized to make it more dynamic. If you restart the game the questions will not be shown in the same order.
+
+### Try It Out
+https://xtianares.github.io/TriviaGame/
